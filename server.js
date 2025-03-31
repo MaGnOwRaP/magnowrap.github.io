@@ -26,18 +26,18 @@ app.get('/generate-pdf', async (req, res) => {
 
         // Create a new PDF
         const pdfDoc = await PDFDocument.create();
-        const page = pdfDoc.addPage([1689, 591]); // Use the specified page size (A5-like size)
+        const page = pdfDoc.addPage([3000, 1000]); // Use the specified page size (A5-like size)
 
         // Embed the JPG template image
         const image = await pdfDoc.embedJpg(templateJPG);
-        page.drawImage(image, { x: 0, y: 0, width: 1689, height: 591 });
+        page.drawImage(image, { x: 0, y: 0, width: 3000, height: 1000 });
 
         // Convert the QR code Data URL to a PNG byte array
         const qrImageBytes = Buffer.from(qrCodeDataURL.split(',')[1], 'base64');
         const qrImage = await pdfDoc.embedPng(qrImageBytes);
 
         // Embed the QR code image in the desired position (x: 1237, y: 146)
-        page.drawImage(qrImage, { x: 1237, y: 146, width: 300, height: 300 });
+        page.drawImage(qrImage, { x: 2300, y: 530, width: 400, height: 400 });
 
         // Add text for the ticket code
        
