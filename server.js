@@ -51,12 +51,12 @@ app.get('/generate-pdf', async (req, res) => {
         // Add text for the ticket code
         // Determine the price based on ticket ID prefix
         let priceText = 'LKR ???';
-        if (userCode.startsWith('UG')) {
-             priceText = 'LKR 2800/=';
-            } 
-        else if (userCode.startsWith('AL')) {
-            priceText = 'LKR 4000/=';
-        }
+            if (userCode.startsWith('UG')) {
+                 priceText = 'LKR 2800/=';
+                } 
+            else if (userCode.startsWith('AL')) {
+                priceText = 'LKR 4000/=';
+            }
 
         // Add the price to page 1
         page1.drawText(priceText, {
@@ -66,13 +66,8 @@ app.get('/generate-pdf', async (req, res) => {
             font: Font,
             color: rgb(0, 0, 0),
         });
-        page1.drawText('LKR 2800/=', {
-            x: 1805,
-            y: 80,
-            size: 80,
-            font: Font,
-            color: rgb(0,0,0),
-        })
+       
+        
         console.log(`Ticket Code: ${userCode}, Price: ${priceText}`);
 
     
