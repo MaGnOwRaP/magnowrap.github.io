@@ -11,7 +11,7 @@ function generatePDF() {
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'ticket.pdf';
+            a.download = 'Amizade25 Ticket.pdf';
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
