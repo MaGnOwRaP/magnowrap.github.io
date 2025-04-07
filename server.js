@@ -53,7 +53,8 @@ app.get('/generate-pdf', async (req, res) => {
         let priceText = 'LKR ???';
         if (userCode.startsWith('UG')) {
              priceText = 'LKR 2800/=';
-        } else if (userCode.startsWith('AL')) {
+            } 
+        else if (userCode.startsWith('AL')) {
             priceText = 'LKR 4000/=';
         }
 
